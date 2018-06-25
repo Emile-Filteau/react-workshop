@@ -1,3 +1,5 @@
+const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
+
 module.exports = {
   mode: process.env.WEBPACK_SERVE ? "development" : "production",
   target: "web",
@@ -8,11 +10,12 @@ module.exports = {
   },
   devtool: "source-map",
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".json"]
+    extensions: [".ts", ".tsx", ".js", ".json"],
+    plugins: [new TsconfigPathsPlugin({ configFile: "./tsconfig.json" })]
   },
   module: {
     rules: [
-      { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
+      { test: /\.tsx?$/, loader: "ts-loader" },
       {
         test: /\.scss$/,
         loader: "style-loader!css-loader?modules!sass-loader"
