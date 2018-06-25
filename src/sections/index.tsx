@@ -1,7 +1,4 @@
 import * as React from "react";
+import listings from "./listings";
 
-export default class Index extends React.Component<{}, {}> {
-  render() {
-    return <div>This is the index page</div>;
-  }
-}
+export default <>{listings}</>;
